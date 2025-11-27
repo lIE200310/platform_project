@@ -94,10 +94,10 @@ const server = http.createServer((req, res) => {
 		"<i>Just give up!<br></i> CHARRR ",
         "<i><br>Believe in me?</i> ",
         "<br> ETO NA TALAGA!",
-		"<i>God has a plan.<br> TRUST IT, LIVE IT, ENJOY IT.🤍</i>"
+		"<i>GANDA MO ALLY.</i>",
     ];
 
-    const quoteElement = document.getElementById("quote");
+    const quoteElement = document.getElementById("quote"); 
     let index = 1;
 
     function changeQuote() {
