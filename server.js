@@ -5,15 +5,15 @@ const server = http.createServer((req, res) => {
   res.write(`
     <style>
     body {
+        height: 100%;
         margin: 0;
-        padding: 0;
         font-family: Georgia, serif;
+        background-color: #FFE4B5;
     }
 
+    
     table {
         width: 100%;
-        max-width: 2200px;
-        margin: auto;
         border-collapse: collapse;
     }
 
@@ -25,16 +25,16 @@ const server = http.createServer((req, res) => {
         text-align: center;
     }
 
+  
     .content {
-        background-color: #FFDEAD;
+    
         color: #A0522D;
-        text-align: center;
-        padding: 40px 20px;
-        min-height: 78vh;
         display: flex;
         flex-direction: column;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
+        padding: 160px 20px;
+        text-align: center;
     }
 
     .pop {
@@ -44,14 +44,8 @@ const server = http.createServer((req, res) => {
     }
 
     @keyframes popUp {
-        0% {
-            transform: scale(0.5);
-            opacity: 0;
-        }
-        100% {
-            transform: scale(1);
-            opacity: 1;
-        }
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
     }
 
     .content h1 {
@@ -64,60 +58,49 @@ const server = http.createServer((req, res) => {
         line-height: 1.6;
     }
 
-    tfoot td {
-        text-align: center;
-        padding: 12px;
-        font-size: 1rem;
-        background-color: white;
-    }
 </style>
 
 </head>
 <body>
 
+
 <table border="1">
     <tr>
-        <th colspan="2">My Application</th>
+        <th>My Application</th>
     </tr>
-
-<tr>
-    <td class="content">
-        <h1 class="pop">ABELES, LIERA V. <br> NT-4101</h1>
-        <p id="quote" style="animation-delay: 0.9s;" class="pop"></p>
-    </td>
-</tr>
-
 </table>
+
+
+<div class="content">
+    <h1 class="pop">ABELES, LIERA V. <br> NT-4101</h1>
+    <p id="quote" style="animation-delay: 0.9s;" class="pop"></p>
+</div>
+
 
 <script>
     const quotes = [
-		"<i>Just give up!<br></i> CHARRR ",
-        "<i><br>Believe in me?</i> ",
-        "<br> ETO NA TALAGA!",
-		"<i>GANDA MO ALLY.</i>",
+        "<i>Just give up!<br></i> CHARRR",
+        "<br>MY INSPIRATIONAL QUOTE:",
+        "<i>God has a plan.<br>TRUST IT, LIVE IT, ENJOY IT.</i>"
     ];
 
-    const quoteElement = document.getElementById("quote"); 
+    const quoteElement = document.getElementById("quote");
     let index = 1;
 
     function changeQuote() {
-    
         quoteElement.classList.remove("pop");
 
         setTimeout(() => {
-        
             quoteElement.innerHTML = quotes[index];
             index = (index + 1) % quotes.length;
-
-        
             quoteElement.classList.add("pop");
         }, 100);
     }
-       quoteElement.innerHTML = quotes[0];
 
-    
+    quoteElement.innerHTML = quotes[0];
     setInterval(changeQuote, 3000);
-</script>  
+</script>
+
 </body>
     `);
     res.end();
