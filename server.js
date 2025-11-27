@@ -113,6 +113,12 @@ const server = http.createServer((req, res) => {
             quoteElement.classList.add("pop");
         }, 100);
     }
+       quoteElement.innerHTML = quotes[0];
+
+    
+    setInterval(changeQuote, 3000);
+</script>  
+</body>
     `);
     res.end();
 });
