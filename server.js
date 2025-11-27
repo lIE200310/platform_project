@@ -37,12 +37,10 @@ const server = http.createServer((req, res) => {
         align-items: center;
     }
 
-   
     .pop {
         opacity: 0;
         transform: scale(0.5);
         animation: popUp 0.8s ease forwards;
-        animation-delay: 0.3s;
     }
 
     @keyframes popUp {
@@ -84,14 +82,37 @@ const server = http.createServer((req, res) => {
 
 <tr>
     <td class="content">
-        <!-- Add class 'pop' to the text you want to animate -->
         <h1 class="pop">ABELES, LIERA V. <br> NT-4101</h1>
-        <p class="pop"><i>Just give up!</i>- CHARRR<br>
-		Trust</p>
+        <p id="quote" style="animation-delay: 0.9s;" class="pop"></p>
     </td>
 </tr>
 
 </table>
+
+<script>
+    const quotes = [
+		"<i>Just give up!<br></i> CHARRR ",
+        "<i><br>Believe in me?</i> ",
+        "<br> ETO NA TALAGA!",
+		"<i>God has a plan.<br> TRUST IT, LIVE IT, ENJOY IT.🤍</i>"
+    ];
+
+    const quoteElement = document.getElementById("quote");
+    let index = 1;
+
+    function changeQuote() {
+    
+        quoteElement.classList.remove("pop");
+
+        setTimeout(() => {
+        
+            quoteElement.innerHTML = quotes[index];
+            index = (index + 1) % quotes.length;
+
+        
+            quoteElement.classList.add("pop");
+        }, 100);
+    }
     `);
     res.end();
 });
