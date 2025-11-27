@@ -3,42 +3,94 @@ const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   res.write(`
-    <table border = " 5px">
-	   <form>
-		<th colspan = "2" width = "1500px" height = "100px" style = "font-size: 20px; color: #FFE4B5;" >
-		<style>
-			th {
-			background-color: #8B4513;
-			}
-		</style>
-			<center><h1> My Website</h1> </th>
-		   <tr> 
-			<td width = "200px" height = "295px" style = "font-size: 15px; color: #A0522D;" ><center> 
-		<style>
-			td {
-			background-color: #FFDEAD;
-			}
-		</style>	
-			<h1> Home </h1> </td>
-			<td rowspan = "2" style = "font-size: 30px; color: #A0522D;"> <center>
-				<h1>REST</h1>
-					<p>Merely want something,
-					<br/>Simply longing for a rest.
-					<br/>A quiet, long one
-					<br/>Where no one's gonna disturb
-					<br/>Thinking only peaceful things.
-					<br/><i>- Liera Abeles</i></p>
-			</td>
-		   </tr>
-		   <tr>
-			<td width = "200px" height = "245px" style = "font-size: 15px; color: #A0522D;"> <center> 
-			<h1>About us</h1> </td>
-		   </tr>
-		<tfoot>
-		   <tr>
-			<td colspan = "2"> <center> All Right Reserved 2024 </td>
-		   </tr>
-</form>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Georgia, serif;
+    }
+
+    table {
+        width: 100%;
+        max-width: 2200px;
+        margin: auto;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: #8B4513;
+        color: #FFE4B5;
+        font-size: 2rem;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .content {
+        background-color: #FFDEAD;
+        color: #A0522D;
+        text-align: center;
+        padding: 40px 20px;
+        min-height: 78vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+    }
+
+   
+    .pop {
+        opacity: 0;
+        transform: scale(0.5);
+        animation: popUp 0.8s ease forwards;
+        animation-delay: 0.3s;
+    }
+
+    @keyframes popUp {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .content h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+
+    tfoot td {
+        text-align: center;
+        padding: 12px;
+        font-size: 1rem;
+        background-color: white;
+    }
+</style>
+
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th colspan="2">My Application</th>
+    </tr>
+
+<tr>
+    <td class="content">
+        <!-- Add class 'pop' to the text you want to animate -->
+        <h1 class="pop">ABELES, LIERA V. <br> NT-4101</h1>
+        <p class="pop"><i>Just give up!</i>- CHARRR<br>
+		Trust</p>
+    </td>
+</tr>
+
 </table>
     `);
     res.end();
